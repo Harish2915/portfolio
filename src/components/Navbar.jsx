@@ -127,8 +127,9 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 lg:hidden pt-24 px-6 glass backdrop-blur-xl"
-          >
+            className="fixed inset-0 z-40 lg:hidden pt-24 px-6 
+           glass backdrop-blur-xl 
+           h-screen overflow-y-auto"          >
             <nav className="flex flex-col gap-5">
               {navLinks.map((link, i) => {
                 const Icon = link.icon;
