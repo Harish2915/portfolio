@@ -53,6 +53,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* Lock body scroll when menu open */
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       {/* Header */}
@@ -60,11 +65,10 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "glass shadow-soft py-3 backdrop-blur-md"
-            : "py-5 bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+            ? "glass shadow-soft py-4 backdrop-blur-md"
+            : "py-4 bg-transparent"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
 
@@ -83,18 +87,14 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`flex items-center gap-2 font-medium transition relative
-                    ${
-                      isActive
-                        ? "text-primary"
-                        : "text-muted hover:text-primary"
+                  className={`flex items-center gap-2 font-medium transition relative ${isActive
+                      ? "text-primary"
+                      : "text-muted hover:text-primary"
                     }`}
                 >
                   <Icon size={18} />
-
                   {link.name}
 
-                  {/* Active underline */}
                   {isActive && (
                     <motion.span
                       layoutId="navUnderline"
@@ -125,11 +125,14 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 10 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 lg:hidden pt-24 px-6 
-           glass backdrop-blur-xl 
-           h-screen overflow-y-auto"          >
+            className="fixed left-0 right-0 top-16 bottom-0 
+                       z-40 lg:hidden 
+                       px-6 pb-20
+                       glass backdrop-blur-xl 
+                       overflow-y-auto"
+          >
             <nav className="flex flex-col gap-5">
               {navLinks.map((link, i) => {
                 const Icon = link.icon;
@@ -142,11 +145,9 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className={`flex items-center gap-3 py-3 text-lg font-medium border-b border-white/10
-                      ${
-                        isActive
-                          ? "text-primary"
-                          : "text-text hover:text-primary"
+                    className={`flex items-center gap-3 py-3 text-lg font-medium border-b border-white/10 ${isActive
+                        ? "text-primary"
+                        : "text-text hover:text-primary"
                       }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
