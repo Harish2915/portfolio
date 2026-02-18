@@ -102,16 +102,22 @@ export default function About() {
                 Quick Info
               </h3>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              {/* Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
                 {/* Email */}
-                <div className="group bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-4
-                      transition-all duration-300 hover:border-primary/50 
-                      hover:bg-primary/5 hover:shadow-[0_0_20px_rgba(79,70,229,0.25)] 
-                      hover:-translate-y-1 overflow-hidden">
-
-                  <HiOutlineMail className="text-primary w-6 h-6 mt-1 flex-shrink-0
-                                  transition-transform duration-300 group-hover:scale-110" />
+                <div
+                  className="group flex items-start gap-4 p-4 rounded-xl
+        bg-white/5 border border-white/10
+        transition-all duration-300
+        hover:border-primary/50 hover:bg-primary/5
+        hover:shadow-[0_0_20px_rgba(79,70,229,0.25)]
+        hover:-translate-y-1"
+                >
+                  <HiOutlineMail
+                    className="text-primary w-6 h-6 mt-1 flex-shrink-0
+          transition-transform duration-300 group-hover:scale-110"
+                  />
 
                   <div className="min-w-0">
                     <p className="text-muted text-sm">Email</p>
@@ -122,72 +128,85 @@ export default function About() {
                       Send a Mail
                     </a>
                   </div>
-
                 </div>
 
                 {/* Phone */}
-                <div className="group bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-4
-                      transition-all duration-300 hover:border-primary/50 
-                      hover:bg-primary/5 hover:shadow-[0_0_20px_rgba(79,70,229,0.25)] 
-                      hover:-translate-y-1">
+                <div
+                  className="group flex items-start gap-4 p-4 rounded-xl
+        bg-white/5 border border-white/10
+        transition-all duration-300
+        hover:border-primary/50 hover:bg-primary/5
+        hover:shadow-[0_0_20px_rgba(79,70,229,0.25)]
+        hover:-translate-y-1"
+                >
+                  <HiOutlinePhone
+                    className="text-primary w-6 h-6 mt-1 flex-shrink-0
+          transition-transform duration-300 group-hover:scale-110"
+                  />
 
-                  <HiOutlinePhone className="text-primary w-6 h-6 mt-1
-                                   transition-transform duration-300 group-hover:scale-110" />
-
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-muted text-sm">Phone</p>
                     <a
                       href="tel:+918148690290"
                       className="text-primary font-medium hover:underline"
                     >
-                      +91 8148690290
+                      +91 81486 90290
                     </a>
                   </div>
-
                 </div>
 
                 {/* WhatsApp */}
-                <div className="group bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-4
-                      transition-all duration-300 hover:border-primary/50 
-                      hover:bg-primary/5 hover:shadow-[0_0_20px_rgba(79,70,229,0.25)] 
-                      hover:-translate-y-1">
+                <div
+                  className="group flex items-start gap-4 p-4 rounded-xl
+        bg-white/5 border border-white/10
+        transition-all duration-300
+        hover:border-primary/50 hover:bg-primary/5
+        hover:shadow-[0_0_20px_rgba(79,70,229,0.25)]
+        hover:-translate-y-1"
+                >
+                  <FaWhatsapp
+                    className="text-primary w-6 h-6 mt-1 flex-shrink-0
+          transition-transform duration-300 group-hover:scale-110"
+                  />
 
-                  <FaWhatsapp className="text-primary w-6 h-6 mt-1
-                               transition-transform duration-300 group-hover:scale-110" />
-
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-muted text-sm">WhatsApp</p>
                     <a
                       href="https://wa.me/918148690290"
                       target="_blank"
-                      className="text-primary font-medium hover:underline"
+                      rel="noopener noreferrer"
+                      className="text-primary font-medium hover:underline break-words"
                     >
                       Chat on WhatsApp
                     </a>
                   </div>
-
                 </div>
 
                 {/* LinkedIn */}
-                <div className="group bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-4
-                      transition-all duration-300 hover:border-primary/50 
-                      hover:bg-primary/5 hover:shadow-[0_0_20px_rgba(79,70,229,0.25)] 
-                      hover:-translate-y-1">
+                <div
+                  className="group flex items-start gap-4 p-4 rounded-xl
+        bg-white/5 border border-white/10
+        transition-all duration-300
+        hover:border-primary/50 hover:bg-primary/5
+        hover:shadow-[0_0_20px_rgba(79,70,229,0.25)]
+        hover:-translate-y-1"
+                >
+                  <FaLinkedin
+                    className="text-primary w-6 h-6 mt-1 flex-shrink-0
+          transition-transform duration-300 group-hover:scale-110"
+                  />
 
-                  <FaLinkedin className="text-primary w-6 h-6 mt-1
-                               transition-transform duration-300 group-hover:scale-110" />
-
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-muted text-sm">LinkedIn</p>
                     <a
                       href="https://linkedin.com/in/harish-m-6506352bb"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-primary font-medium hover:underline"
                     >
-                      harish-m-6506352bb
+                      View Profile
                     </a>
                   </div>
-
                 </div>
 
               </div>

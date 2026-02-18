@@ -61,7 +61,7 @@ export default function Footer() {
 
               <p className="flex items-center justify-center md:justify-start gap-2">
                 <HiLocationMarker className="text-primary" />
-                Erode, Tamil Nadu
+                Tamil Nadu, India
               </p>
             </div>
           </div>

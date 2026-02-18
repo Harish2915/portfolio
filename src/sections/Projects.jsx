@@ -97,37 +97,54 @@ export default function Projects() {
           className="grid md:grid-cols-2 gap-8"
         >
           {projects.map((project) => (
-            <motion.div key={project.title} variants={item}>
+            <motion.div key={project.title} variants={item} className="h-full">
               <motion.div
-                className="group cursor-pointer"
+                className="group cursor-pointer h-full"
                 whileHover={{ y: -8 }}
                 onClick={() => setSelected(project)}
               >
-                <GlassCard hover={false} className="p-6 h-full flex flex-col hover:glow-card">
+                <GlassCard
+                  hover={false}
+                  className="p-6 h-full flex flex-col hover:glow-card"
+                >
+                  {/* Image */}
                   <img
                     src={project.image || defaultImage}
                     alt={project.title}
                     className="w-full h-48 object-cover rounded-xl mb-4"
                   />
-                  <div className="flex-1 flex flex-col">
-                    <h3 className="text-xl font-semibold text-text mb-2">{project.title}</h3>
-                    <p className="text-muted text-sm mb-4 flex-1 leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+
+                  {/* Content */}
+                  <div className="flex flex-col flex-1">
+
+                    <h3 className="text-xl font-semibold text-text mb-2">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-muted text-sm mb-4 leading-relaxed flex-1">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Tags — pinned bottom */}
+                    <div className="flex flex-wrap gap-2 mt-auto">
                       {project.tech.map((t) => (
                         <span
                           key={t}
-                          className="px-2.5 py-1 rounded-md text-xs font-medium bg-primary/20 text-primary border border-primary/30"
+                          className="px-2.5 py-1 rounded-md text-xs font-medium
+                  bg-primary/20 text-primary border border-primary/30"
                         >
                           {t}
                         </span>
                       ))}
                     </div>
+
                   </div>
                 </GlassCard>
               </motion.div>
             </motion.div>
           ))}
         </motion.div>
+
 
         {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
       </div>

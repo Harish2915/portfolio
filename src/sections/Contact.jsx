@@ -18,28 +18,29 @@ const contacts = [
   {
     icon: HiMail,
     label: "Email",
-    value: "harish29012004@gmail.com",
+    value: "Send Email",
     href: "mailto:harish29012004@gmail.com",
   },
   {
     icon: FaLinkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/harish-m-6506352bb",
+    value: "View Profile",
     href: "https://linkedin.com/in/harish-m-6506352bb",
   },
   {
     icon: FaGithub,
     label: "GitHub",
-    value: "github.com/Harish2915",
+    value: "View Projects",
     href: "https://github.com/Harish2915",
   },
   {
     icon: HiLocationMarker,
     label: "Location",
-    value: "Erode, Tamil Nadu, India",
+    value: "Tamil Nadu, India",
     href: null,
   },
 ];
+
 
 /* ================= COMPONENT ================= */
 
@@ -127,6 +128,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    placeholder="Enter Your Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -140,6 +142,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
+                    placeholder="Your@mail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -153,6 +156,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     value={message}
+                    placeholder="Type a Message..."
                     onChange={(e) => setMessage(e.target.value)}
                     required
                     rows={4}
@@ -199,39 +203,43 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mt-12 grid sm:grid-cols-2 gap-6"
         >
-          {contacts.map(({ icon: Icon, label, value, href }) => (
-            <motion.a
-              key={label}
-              href={href || "#"}
-              target={href ? "_blank" : undefined}
-              rel={href ? "noopener noreferrer" : undefined}
-              whileHover={{ y: -4 }}
-              className="group flex items-center gap-4 p-4 rounded-xl 
-                 bg-white/5 border border-white/10 
-                 transition-all duration-300
-                 hover:border-primary/50 
-                 hover:bg-primary/5 
-                 hover:shadow-[0_0_20px_rgba(79,70,229,0.25)]"
-            >
-              {/* Icon */}
-              <div
-                className="w-12 h-12 rounded-xl bg-primary/20 
-                   flex items-center justify-center text-primary
-                   transition-transform duration-300
-                   group-hover:scale-110"
-              >
-                <Icon className="w-5 h-5" />
-              </div>
+          {contacts.map(({ icon: Icon, label, value, href }) => {
+            const Wrapper = href ? motion.a : motion.div;
 
-              {/* Text */}
-              <div>
-                <p className="text-xs text-muted">{label}</p>
-                <p className="text-text font-semibold break-all">
-                  {value}
-                </p>
-              </div>
-            </motion.a>
-          ))}
+            return (
+              <Wrapper
+                key={label}
+                href={href || undefined}
+                target={href ? "_blank" : undefined}
+                rel={href ? "noopener noreferrer" : undefined}
+                whileHover={{ y: -4 }}
+                className="group flex items-center gap-4 p-4 rounded-xl 
+        bg-white/5 border border-white/10 
+        transition-all duration-300
+        hover:border-primary/50 
+        hover:bg-primary/5 
+        hover:shadow-[0_0_20px_rgba(79,70,229,0.25)]"
+              >
+                {/* Icon */}
+                <div
+                  className="w-12 h-12 rounded-xl bg-primary/20 
+        flex items-center justify-center text-primary
+        transition-transform duration-300
+        group-hover:scale-110"
+                >
+                  <Icon className="w-5 h-5" />
+                </div>
+
+                {/* Text */}
+                <div className="min-w-0">
+                  <p className="text-xs text-muted">{label}</p>
+                  <p className="text-text font-semibold break-words">
+                    {value}
+                  </p>
+                </div>
+              </Wrapper>
+            );
+          })}
         </motion.div>
 
       </div>

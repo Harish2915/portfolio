@@ -74,7 +74,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive = active === link.href.replace("#", "");
@@ -108,7 +108,7 @@ export default function Navbar() {
 
           {/* Mobile Button */}
           <motion.button
-            className="md:hidden w-10 h-10 flex items-center justify-center 
+            className="lg:hidden w-10 h-10 flex items-center justify-center 
                        rounded-xl bg-white/5 border border-white/10 
                        text-text hover:text-primary hover:border-primary/40 
                        transition backdrop-blur-md shadow-soft"
@@ -127,7 +127,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 md:hidden pt-24 px-6 glass backdrop-blur-xl"
+            className="fixed inset-0 z-40 lg:hidden pt-24 px-6 glass backdrop-blur-xl"
           >
             <nav className="flex flex-col gap-5">
               {navLinks.map((link, i) => {
