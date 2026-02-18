@@ -7,9 +7,35 @@ const experiences = [
     role: 'Full Stack Developer Intern',
     company: 'Younder Bots (OPC) Pvt Ltd',
     period: 'Sep 2025 – Jan 2026',
-    description: 'Worked on full stack development, building scalable web applications and APIs.',
+
+    summary:
+      'Worked on full stack web development using modern frontend and backend technologies, contributing to real-world application features and API development.',
+
+    achievements: [
+      'Developed responsive user interfaces using HTML, CSS, JavaScript, and React.',
+      'Built backend services with FastAPI and implemented GraphQL APIs for efficient data fetching.',
+      'Integrated databases using SQLAlchemy and handled data models and queries.',
+      'Debugged application issues and improved performance across multiple modules.',
+      'Collaborated with developers to implement new features and optimize workflows.',
+    ],
+
+    tech: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React',
+      'Python',
+      'FastAPI',
+      'GraphQL',
+      'SQLAlchemy',
+    ],
+
+    impact:
+      'Gained hands-on experience in building scalable full stack applications and working within a professional development environment.',
   },
 ];
+
+
 
 const container = {
   hidden: { opacity: 0 },
@@ -58,15 +84,62 @@ export default function Experience() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               />
-              <GlassCard className="h-full hover:glow-card">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <HiBriefcase className="text-primary w-5 h-5" />
-                  <span className="text-muted text-sm font-medium">{exp.period}</span>
+              <GlassCard className="h-full hover:glow-card p-6">
+
+                {/* Header */}
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <h3 className="text-xl font-semibold text-text">
+                      {exp.role}
+                    </h3>
+                    <p className="text-secondary font-medium">
+                      {exp.company}
+                    </p>
+                  </div>
+
+                  <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                    {exp.period}
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-text mb-1">{exp.role}</h3>
-                <p className="text-secondary font-medium mb-2">{exp.company}</p>
-                <p className="text-muted text-sm leading-relaxed">{exp.description}</p>
+
+                {/* Summary */}
+                <p className="text-muted text-sm leading-relaxed mb-4">
+                  {exp.summary}
+                </p>
+
+                {/* Achievements */}
+                <div className="mb-4">
+                  <p className="text-text font-medium mb-2">Key Contributions</p>
+                  <ul className="space-y-2">
+                    {exp.achievements.map((point, idx) => (
+                      <li key={idx} className="text-muted text-sm flex gap-2">
+                        <span className="text-primary">✔</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.tech.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 text-xs rounded-md bg-secondary/10 text-secondary border border-secondary/20"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Impact */}
+                <div className="text-xs text-primary font-medium">
+                   {exp.impact}
+                </div>
+
               </GlassCard>
+
+
             </motion.div>
           ))}
         </motion.div>

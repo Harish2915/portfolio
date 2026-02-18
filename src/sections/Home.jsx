@@ -77,23 +77,36 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row flex-wrap justify-center items-stretch gap-4"
             >
-              <Button href="#projects" variant="gradient">
+
+              <Button
+                href="#projects"
+                variant="gradient"
+                className="w-full sm:w-auto sm:min-w-[160px]"
+              >
                 View Projects
               </Button>
+
               <Button
                 href="/Resume/resume.pdf"
                 download
                 variant="outline"
                 icon={HiDownload}
+                className="w-full sm:w-auto sm:min-w-[160px]"
               >
                 Download Resume
               </Button>
 
-              <Button href="#contact" variant="secondary" icon={HiOutlineMail}>
+              <Button
+                href="#contact"
+                variant="secondary"
+                icon={HiOutlineMail}
+                className="w-full sm:w-auto sm:min-w-[160px]"
+              >
                 Contact Me
               </Button>
+
             </motion.div>
           </div>
 

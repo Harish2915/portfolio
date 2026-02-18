@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { HiMail, HiLocationMarker } from "react-icons/hi";
+import { HiMail, HiLocationMarker, HiPhone } from "react-icons/hi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import GlassCard from "../components/GlassCard";
@@ -15,6 +15,12 @@ const PUBLIC_KEY = "phfJLHD8dVPna2ZRu";
 /* ================= CONTACT DATA ================= */
 
 const contacts = [
+  //   {
+  //   icon: HiPhone,
+  //   label: "Phone",
+  //   value: "+91 8148690290",
+  //   href: "call:+918148690290",
+  // },
   {
     icon: HiMail,
     label: "Email",
@@ -32,12 +38,6 @@ const contacts = [
     label: "GitHub",
     value: "View Projects",
     href: "https://github.com/Harish2915",
-  },
-  {
-    icon: HiLocationMarker,
-    label: "Location",
-    value: "Tamil Nadu, India",
-    href: null,
   },
 ];
 
