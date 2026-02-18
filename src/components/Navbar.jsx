@@ -125,7 +125,7 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 10 }}
+            animate={{ opacity: 1, y: 9.5 }}
             exit={{ opacity: 0, y: -20 }}
             className="fixed left-0 right-0 top-16 bottom-0 
                        z-40 lg:hidden 
