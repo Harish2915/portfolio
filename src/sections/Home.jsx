@@ -89,7 +89,7 @@ export default function Hero() {
               </Button>
 
               <Button
-                href="/Resume/resume.pdf"
+                href="/Resume/Harish_Resume.pdf"
                 download
                 variant="outline"
                 icon={HiDownload}
