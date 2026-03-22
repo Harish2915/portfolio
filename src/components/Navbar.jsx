@@ -29,25 +29,34 @@ export default function Navbar() {
 
   /* Scroll Detect */
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
 
-      const sections = navLinks.map((link) =>
-        document.querySelector(link.href)
-      );
+          const sections = navLinks.map((link) =>
+            document.querySelector(link.href)
+          );
 
-      sections.forEach((section) => {
-        if (!section) return;
+          sections.forEach((section) => {
+            if (!section) return;
 
-        const rect = section.getBoundingClientRect();
+            const rect = section.getBoundingClientRect();
 
-        if (rect.top <= 120 && rect.bottom >= 120) {
-          setActive(section.id);
-        }
-      });
+            if (rect.top <= 120 && rect.bottom >= 120) {
+              setActive(section.id);
+            }
+          });
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);

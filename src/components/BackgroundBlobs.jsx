@@ -1,6 +1,7 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function BackgroundBlobs() {
+const BackgroundBlobs = React.memo(function BackgroundBlobs() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       <motion.div
@@ -45,4 +46,6 @@ export default function BackgroundBlobs() {
       />
     </div>
   );
-}
+});
+
+export default BackgroundBlobs;

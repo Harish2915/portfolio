@@ -78,6 +78,7 @@ export default function ProjectModal({ project, onClose }) {
                                 "https://via.placeholder.com/800x450"
                             }
                             alt={project.title}
+                            loading="lazy"
                             className="w-full rounded-xl border border-white/10"
                         />
                     </div>

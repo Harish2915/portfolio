@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import Welcome from "./components/Welcome";
 
 import Navbar from './components/Navbar';
@@ -6,13 +6,14 @@ import ScrollProgress from './components/ScrollProgress';
 import CursorGlow from './components/CursorGlow';
 import BackgroundBlobs from './components/BackgroundBlobs';
 import Hero from './sections/Home';
-import About from './sections/About';
-import Skills from './sections/Skills';
-import Projects from './sections/Projects';
-import Experience from './sections/Experience';
-import Education from './sections/Education';
-import Contact from './sections/Contact';
-import Footer from './sections/Footer';
+
+const About = lazy(() => import('./sections/About'));
+const Skills = lazy(() => import('./sections/Skills'));
+const Projects = lazy(() => import('./sections/Projects'));
+const Experience = lazy(() => import('./sections/Experience'));
+const Education = lazy(() => import('./sections/Education'));
+const Contact = lazy(() => import('./sections/Contact'));
+const Footer = lazy(() => import('./sections/Footer'));
 
 function App() {
 
@@ -31,13 +32,15 @@ function App() {
 
       <main className="relative z-10">
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Education />
-        <Contact />
-        <Footer />
+        <Suspense fallback={<div className="min-h-[100vh]" />}>
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Education />
+          <Contact />
+          <Footer />
+        </Suspense>
       </main>
     </div>
   );

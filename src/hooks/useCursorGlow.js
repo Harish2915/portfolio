@@ -5,13 +5,24 @@ export function useCursorGlow() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setIsVisible(true);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setPosition({ x: e.clientX, y: e.clientY });
+          setIsVisible(true);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+    
     const handleLeave = () => setIsVisible(false);
-    window.addEventListener('mousemove', handleMove);
+    
+    window.addEventListener('mousemove', handleMove, { passive: true });
     document.body.addEventListener('mouseleave', handleLeave);
+    
     return () => {
       window.removeEventListener('mousemove', handleMove);
       document.body.removeEventListener('mouseleave', handleLeave);

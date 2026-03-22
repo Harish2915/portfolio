@@ -111,6 +111,7 @@ export default function Projects() {
                   <img
                     src={project.image || defaultImage}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-48 object-cover rounded-xl mb-4"
                   />
 
