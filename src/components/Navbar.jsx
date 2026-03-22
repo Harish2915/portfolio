@@ -27,6 +27,9 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
 
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   /* Scroll Detect */
   useEffect(() => {
     let ticking = false;
@@ -121,7 +124,7 @@ export default function Navbar() {
                        rounded-xl bg-white/5 border border-white/10 
                        text-text hover:text-primary hover:border-primary/40 
                        transition backdrop-blur-md shadow-soft"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMobileMenu}
             whileTap={{ scale: 0.9 }}
           >
             {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -158,7 +161,7 @@ export default function Navbar() {
                         ? "text-primary"
                         : "text-text hover:text-primary"
                       }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={closeMobileMenu}
                   >
                     <Icon size={20} />
                     {link.name}

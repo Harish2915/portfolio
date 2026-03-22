@@ -16,7 +16,7 @@ const projects = [
       'Drag-and-drop interface',
     ],
     tech: ['React', 'FastAPI', 'MySQL'],
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1200&fm=webp',
   },
   {
     title: 'Job Portal System',
@@ -28,7 +28,7 @@ const projects = [
       'Employer dashboard with analytics',
     ],
     tech: ['React', 'GraphQL', 'MySQL'],
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&fm=webp',
   },
   {
     title: 'Crime Analysis Project',
@@ -40,7 +40,7 @@ const projects = [
       'Predictive trend analysis',
     ],
     tech: ['Python', 'Pandas', 'Visualization'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&fm=webp',
   },
   {
     title: 'Marine Plastic Classification',
@@ -52,7 +52,20 @@ const projects = [
       'Web interface for uploads',
     ],
     tech: ['Python', 'TensorFlow', 'CNN'],
-    image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=1200&fm=webp',
+  },
+  {
+    title: 'FlowMatrix',
+    description:
+      'A modern workflow/project management system with structured flow visualization.',
+    features: [
+      'Visual flow management',
+      'Team collaboration',
+      'Structured task state machine'
+    ],
+    tech: ['React', 'Node.js', 'Python', 'MySQL'],
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=60&w=800&fm=webp',
+    github: 'https://github.com/Harish2915/FlowMatrix',
   },
 ];
 
@@ -71,6 +84,14 @@ const item = {
 
 export default function Projects() {
   const [selected, setSelected] = useState(null);
+
+  const handleSelect = (project) => {
+    setSelected(project);
+  };
+
+  const handleClose = () => {
+    setSelected(null);
+  };
 
   return (
     <section id="projects" className="py-24 relative z-10 bg-bg-secondary">
@@ -101,7 +122,7 @@ export default function Projects() {
               <motion.div
                 className="group cursor-pointer h-full"
                 whileHover={{ y: -8 }}
-                onClick={() => setSelected(project)}
+                onClick={() => handleSelect(project)}
               >
                 <GlassCard
                   hover={false}
@@ -112,7 +133,9 @@ export default function Projects() {
                     src={project.image || defaultImage}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-48 object-cover rounded-xl mb-4"
+                    width="600"
+                    height="400"
+                    className="w-full h-48 object-cover rounded-xl mb-4 will-change-transform"
                   />
 
                   {/* Content */}
@@ -147,7 +170,7 @@ export default function Projects() {
         </motion.div>
 
 
-        {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
+        {selected && <ProjectModal project={selected} onClose={handleClose} />}
       </div>
     </section>
   );

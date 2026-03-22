@@ -79,7 +79,9 @@ export default function ProjectModal({ project, onClose }) {
                             }
                             alt={project.title}
                             loading="lazy"
-                            className="w-full rounded-xl border border-white/10"
+                            width="800"
+                            height="450"
+                            className="w-full rounded-xl border border-white/10 will-change-transform"
                         />
                     </div>
 
