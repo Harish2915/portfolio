@@ -199,7 +199,7 @@ export default function About() {
                   <div className="min-w-0">
                     <p className="text-muted text-sm">LinkedIn</p>
                     <a
-                      href="https://linkedin.com/in/harish-m-6506352bb"
+                      href="https://www.linkedin.com/in/harish2913"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary font-medium hover:underline"

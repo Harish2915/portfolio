@@ -31,7 +31,7 @@ const contacts = [
     icon: FaLinkedin,
     label: "LinkedIn",
     value: "View Profile",
-    href: "https://linkedin.com/in/harish-m-6506352bb",
+    href: "https://www.linkedin.com/in/harish2913",
   },
   {
     icon: FaGithub,
