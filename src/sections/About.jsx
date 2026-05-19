@@ -71,7 +71,7 @@ export default function About() {
           {/* Left Side */}
           <motion.div variants={item} className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold text-text mb-2">
+                <h3 className="text-2xl md:text-2xl font-semibold text-text mb-4">
                 Personal Profile
               </h3>
               <p className="text-muted text-lg md:text-xl leading-relaxed max-w-2xl">
@@ -83,7 +83,7 @@ export default function About() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-text mb-2">
+                <h3 className="text-2xl md:text-2xl font-semibold text-text mb-4">
                 Career Objectives
               </h3>
               <p className="text-muted leading-relaxed">
